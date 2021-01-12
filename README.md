@@ -1,4 +1,4 @@
-# vue-template
+# huadian-front-end
 
 ## Project setup
 ```
