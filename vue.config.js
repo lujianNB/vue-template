@@ -3,7 +3,7 @@
  * @LastEditors: 卢建
  * @Description: vue配置
  * @Date: 2020-11-18 17:30:23
- * @LastEditTime: 2021-02-24 13:27:41
+ * @LastEditTime: 2021-02-24 13:45:26
  */
 const path = require("path");
 function resolve(dir) {
