@@ -3,65 +3,193 @@
  * @LastEditors: 卢建
  * @Description: 菜单
  * @Date: 2020-11-23 16:40:33
- * @LastEditTime: 2021-02-24 13:45:53
+ * @LastEditTime: 2021-02-24 18:10:08
 -->
 <template>
   <div class="lj-left-menu">
     <el-menu
-      :router="true"
-      default-active="home"
+      :default-active="activeIndex"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
+      background-color="#242F4B"
+      text-color="#D2D5DE"
+      active-text-color="#468FFE"
       ref="activeIndex"
     >
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item index="home">选项1</el-menu-item>
-        <el-menu-item index="about">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
+      <menu-item :menuData="menuData"></menu-item>
     </el-menu>
   </div>
 </template>
 
 <script>
+import menuItem from "./menuItem";
 export default {
   name: "leftMenu",
 
+  components: {
+    menuItem,
+  },
+
   data() {
-    return {};
+    return {
+      activeIndex: null,
+      nowRouter: null,
+      menuData: [
+        {
+          id: "0",
+          title: "首页",
+          router: "/home",
+          icon: "el-icon-s-home",
+          children: [],
+        },
+        {
+          id: "1",
+          title: "巡检",
+          icon: "el-icon-place",
+          router: "/home",
+          children: [
+            {
+              id: "1-0",
+              title: "智能巡检设置",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+            {
+              id: "1-1",
+              title: "巡检记录",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+            {
+              id: "1-2",
+              title: "人工巡检任务",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+            {
+              id: "1-3",
+              title: "故障维修",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+            {
+              id: "1-4",
+              title: "保养维护任务",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+          ],
+        },
+        {
+          id: "2",
+          title: "设备管理",
+          icon: "el-icon-s-management",
+          router: "",
+          children: [
+            {
+              id: "2-0",
+              title: "设备管理",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+            {
+              id: "2-1",
+              title: "设备生命周期管理",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+          ],
+        },
+        {
+          id: "3",
+          title: "告警管理",
+          icon: "el-icon-sunrise",
+          router: "/home",
+          children: [
+            {
+              id: "3-0",
+              title: "巡检告警",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+          ],
+        },
+        {
+          id: "4",
+          title: "消息中心",
+          icon: "el-icon-chat-dot-square",
+          router: "/home",
+          children: [
+            {
+              id: "4-0",
+              title: "消息列表",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+          ],
+        },
+        {
+          id: "5",
+          title: "系统管理",
+          icon: "el-icon-setting",
+          router: "/home",
+          children: [
+            {
+              id: "5-0",
+              title: "用户管理",
+              icon: "",
+              router: "/home",
+              children: [
+                {
+                  id: "5-0-1",
+                  title: "权限管理",
+                  icon: "",
+                  router: "/home",
+                  children: [],
+                },
+              ],
+            },
+            {
+              id: "5-1",
+              title: "角色管理",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+            {
+              id: "5-2",
+              title: "权限管理",
+              icon: "",
+              router: "/home",
+              children: [],
+            },
+          ],
+        },
+      ],
+    };
   },
 
   computed: {},
 
-  mounted() {
-    window.addEventListener('popstate', this.callback)
-  },
+  mounted() {},
 
-  beforeDestroy() {
-    window.removeEventListener('popstate', this.callback)
-  },
+  methods: {},
 
-  methods: {
-    callback() {
-      this.$refs['activeIndex'].activeIndex = this.$route.path.slice(1)
-    },
-    handleOpen(key, keyPath) {
-      // console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      // console.log(key, keyPath);
+  watch: {
+    $route: {
+      handler(val) {
+        this.activeIndex = val.meta.id;
+      },
+      deep: true,
+      immediate: true,
     },
   },
 };
@@ -71,5 +199,6 @@ export default {
 .lj-left-menu {
   width: 100%;
   height: 100%;
+  overflow: auto;
 }
 </style>

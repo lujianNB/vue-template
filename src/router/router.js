@@ -3,7 +3,7 @@
  * @LastEditors: 卢建
  * @Description: 路由表
  * @Date: 2020-11-19 14:01:23
- * @LastEditTime: 2021-02-24 14:13:32
+ * @LastEditTime: 2021-02-24 18:16:26
  */
 import Home from '../views/Home.vue'
 import Layout from '@/layout'
@@ -23,17 +23,10 @@ export const routes = [
                 name: 'Home',
                 component: Home,
                 meta: {
-                    pathName: '首页'
+                    pathName: '首页',
+                    id: '0'
                 }
             },
-            {
-                path: '/about',
-                name: 'About',
-                component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-                meta: {
-                    pathName: '关于'
-                }
-            }
         ]
     },
     {

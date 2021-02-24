@@ -3,7 +3,7 @@
  * @LastEditors: 卢建
  * @Description: 组件外层
  * @Date: 2020-11-23 10:04:45
- * @LastEditTime: 2021-02-24 13:56:48
+ * @LastEditTime: 2021-02-24 18:08:10
 -->
 <template>
   <div class="lj-layout">
@@ -60,7 +60,7 @@ export default {
     display: flex;
     overflow: hidden;
     .left {
-      width: 200px;
+      width: 250px;
       height: 100%;
       background-color: #666;
     }
