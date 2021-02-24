@@ -3,11 +3,7 @@
  * @LastEditors: 卢建
  * @Description: 组件外层
  * @Date: 2020-11-23 10:04:45
-<<<<<<< HEAD
- * @LastEditTime: 2021-02-24 13:45:43
-=======
- * @LastEditTime: 2020-11-23 16:50:18
->>>>>>> master
+ * @LastEditTime: 2021-02-24 13:56:48
 -->
 <template>
   <div class="lj-layout">
