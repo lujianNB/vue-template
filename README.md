@@ -1,4 +1,4 @@
-# vue-template
+# vue-text
 
 ## Project setup
 ```
