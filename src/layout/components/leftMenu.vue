@@ -3,7 +3,7 @@
  * @LastEditors: 卢建
  * @Description: 菜单
  * @Date: 2020-11-23 16:40:33
- * @LastEditTime: 2021-02-24 18:10:08
+ * @LastEditTime: 2021-02-25 10:51:32
 -->
 <template>
   <div class="lj-left-menu">
@@ -31,8 +31,7 @@ export default {
 
   data() {
     return {
-      activeIndex: null,
-      nowRouter: null,
+      activeIndex: null, //当前菜单展开
       menuData: [
         {
           id: "0",
@@ -185,7 +184,7 @@ export default {
 
   watch: {
     $route: {
-      handler(val) {
+      handler(val) { // 监听路由，确保刷新当前页面与菜单一致。
         this.activeIndex = val.meta.id;
       },
       deep: true,
