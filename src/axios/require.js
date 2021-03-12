@@ -3,7 +3,7 @@
  * @LastEditors: 卢建
  * @Description: axios封装
  * @Date: 2020-11-19 14:38:24
- * @LastEditTime: 2020-11-19 17:02:18
+ * @LastEditTime: 2021-03-12 10:16:23
  */
 import axios from 'axios'
 import { Message } from 'element-ui' // 消息组建
@@ -28,7 +28,8 @@ const http = axios.create({
 http.interceptors.request.use(
     config => {
         // 在发送请求之前做些什么
-
+        // const token = utils.LS.get('token')
+        // token && (config.headers.Authorization = 'Bearer ' + token);
         const defaultParams = {
             web_access: 'webqSoiKwpWVge4TkaryH6MKvOdceGt7ZMaF20g8H0cnXIweb',
             token: 'kj6tFXDccchnhEqjjQRyyJwVBjXyNgG2GpMVEqYkSeM9E56NbvpG',
@@ -61,8 +62,12 @@ http.interceptors.response.use(
             if (code !== 0) {
                 noErrorMessage || _Message({
                     message: msg,
-                    type: 'warning'
+                    type: 'error'
                 })
+                // if (code === 10001) { // 退出登录
+                //     utils.LS.remove("token");
+                //     window.location = '/login'
+                // }
                 return Promise.reject(data)
             }
 
