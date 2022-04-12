@@ -3,7 +3,7 @@
  * @LastEditors: 卢建
  * @Description: 入口文件
  * @Date: 2020-11-18 17:26:21
- * @LastEditTime: 2020-11-19 14:59:57
+ * @LastEditTime: 2022-04-12 15:53:07
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -13,6 +13,7 @@ import './style/reset.css'
 import './utils'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import './style/globel.scss'
 
 Vue.config.productionTip = false
 
