@@ -3,7 +3,7 @@
  * @LastEditors: 卢建
  * @Description: 递归菜单
  * @Date: 2021-02-24 16:58:17
- * @LastEditTime: 2022-04-12 15:53:38
+ * @LastEditTime: 2022-04-14 16:47:43
 -->
 <template>
   <div class="lj-menu-item">
@@ -44,13 +44,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "menuItem",
 
   data() {
-    return {
-      nowRouter: null,
-    };
+    return {};
   },
 
   props: {
@@ -60,11 +59,11 @@ export default {
     },
   },
 
-  computed: {},
-
-  mounted() {
-    this.nowRouter = this.$route.path;
+  computed: {
+    ...mapGetters(["nowRouter"]),
   },
+
+  mounted() {},
 
   methods: {
     // 路由跳转
@@ -72,7 +71,6 @@ export default {
       if (this.nowRouter === data) {
         return;
       } else {
-        this.nowRouter = data;
         this.$router.push(data);
       }
     },

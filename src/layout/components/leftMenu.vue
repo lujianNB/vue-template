@@ -3,7 +3,7 @@
  * @LastEditors: 卢建
  * @Description: 菜单
  * @Date: 2020-11-23 16:40:33
- * @LastEditTime: 2021-02-25 10:51:32
+ * @LastEditTime: 2022-04-14 17:00:25
 -->
 <template>
   <div class="lj-left-menu">
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import menuItem from "./menuItem";
 export default {
   name: "leftMenu",
@@ -31,7 +32,7 @@ export default {
 
   data() {
     return {
-      activeIndex: null, //当前菜单展开
+      activeIndex: null, // 当前菜单展开
       menuData: [
         {
           id: "0",
@@ -180,12 +181,18 @@ export default {
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    ...mapMutations({
+      setNowRouter: "SET_NOW_ROUTER",
+    }),
+  },
 
   watch: {
     $route: {
-      handler(val) { // 监听路由，确保刷新当前页面与菜单一致。
+      handler(val) {
+        // 监听路由，确保刷新当前页面与菜单一致。
         this.activeIndex = val.meta.id;
+        this.setNowRouter(this.$route.path);
       },
       deep: true,
       immediate: true,
