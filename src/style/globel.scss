@@ -1,32 +1,99 @@
 // 菜单导航
 .el-menu-item.is-active {
-    background: linear-gradient(90deg, #2b579c 0%, rgba(52, 89, 150, 0) 100%);
-    border-left: 2px solid #0086ff;
+  background: linear-gradient(90deg, #2b579c 0%, rgba(52, 89, 150, 0) 100%);
+  border-left: 2px solid #0086ff;
 }
 .el-menu-item:focus,
 .el-menu-item:hover {
-    background: linear-gradient(90deg, #2b579c 0%, rgba(52, 89, 150, 0) 100%);
-    border-left: 2px solid #0086ff;
+  background: linear-gradient(90deg, #2b579c 0%, rgba(52, 89, 150, 0) 100%);
+  border-left: 2px solid #0086ff;
 }
 .el-submenu__title {
-    i {
-      color: #00d7ff !important;
-    }
+  i {
+    color: #00d7ff !important;
+  }
 }
 .el-menu-item,
 .el-submenu__title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    .radius {
-      width: 8px;
-      height: 8px;
-      background: #468ffe;
-      opacity: 0.6;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .radius {
+    width: 8px;
+    height: 8px;
+    background: #468ffe;
+    opacity: 0.6;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  i {
+    color: #00d7ff !important;
+  }
+}
+
+// 表格
+.table {
+.el-table {
+  color: rgba(250, 250, 250, 0.8);
+  background: transparent;
+  border: 1px solid rgba(51, 225, 226, 0.8);
+
+  .el-table__header{
+    border-bottom: 1px solid rgba(51, 225, 226, 0.5);
+  }
+
+  thead {
+    color: #fff;
+    background: rgba(51, 225, 226, 0.2);
+  }
+
+  th,td{
+    padding: 0;
+    height: 40px;
+  }
+
+  &::before {
+    content: none;
+  }
+
+  td {
+    background: #09314a;
+    border-bottom: 1px solid rgba(51, 225, 226, 0.5);
+
     i {
-      color: #00d7ff !important;
+      color: rgba(51, 225, 226, 1);
+      font-size: 16px;
+      cursor: pointer;
     }
+
+    i+i {
+      margin-left: 10px;
+    }
+  }
+
+  th.is-leaf {
+    border: none;
+  }
+
+  th,
+  tr {
+    background: transparent;
+  }
+
+  tr:last-child {
+    td {
+      border: none;
+    }
+  }
+}
+
+.el-table--enable-row-hover {
+  .el-table__body {
+    tr:hover {
+      >td {
+        background-color: rgba(51, 225, 226, 0.2);
+      }
+    }
+  }
+}
 }
